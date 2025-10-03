@@ -1,0 +1,260 @@
+:root {
+  color-scheme: light dark;
+}
+
+.page {
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.page__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.page__eyebrow {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: hsl(219 11% 58%);
+  margin-bottom: 0.35rem;
+}
+
+.page__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.8rem);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filters__search input {
+  border-radius: 999px;
+  border: 1px solid hsl(219 18% 22%);
+  padding: 0.6rem 1.2rem;
+  background: hsl(219 27% 12%);
+  color: inherit;
+  min-width: 230px;
+}
+
+.filters__search input:focus-visible {
+  outline: 2px solid hsl(206 87% 64%);
+  outline-offset: 2px;
+}
+
+.filters__statuses {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filters__status {
+  border: 1px solid transparent;
+  background: hsl(219 25% 18%);
+  color: inherit;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filters__status:hover {
+  border-color: hsl(206 87% 64% / 0.4);
+}
+
+.filters__status--active {
+  background: hsl(206 87% 64%);
+  color: hsl(214 22% 12%);
+}
+
+.summary-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.summary-card {
+  background: linear-gradient(145deg, hsl(219 28% 18%), hsl(219 20% 15%));
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border: 1px solid hsl(219 23% 25% / 0.4);
+  box-shadow: 0 12px 24px hsl(217 38% 4% / 0.35);
+}
+
+.summary-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.summary-card__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: hsl(214 20% 78%);
+}
+
+.summary-card__trend {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: hsl(219 22% 24%);
+}
+
+.summary-card__trend--positive {
+  color: hsl(142 65% 72%);
+}
+
+.summary-card__trend--negative {
+  color: hsl(12 82% 72%);
+}
+
+.summary-card__total {
+  margin: 0;
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+.summary-card__description {
+  margin: 0;
+  color: hsl(214 16% 70%);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.orders {
+  background: hsl(219 27% 12%);
+  border-radius: 18px;
+  padding: 1.5rem;
+  border: 1px solid hsl(219 28% 18% / 0.55);
+  box-shadow: inset 0 1px 0 hsl(218 33% 26% / 0.45);
+}
+
+.orders__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.orders__header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.orders__count {
+  margin: 0;
+  color: hsl(214 16% 70%);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid hsl(219 27% 22%);
+  text-align: left;
+}
+
+.orders-table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: hsl(214 16% 70%);
+}
+
+.orders-table tbody tr:hover {
+  background: hsl(219 23% 22% / 0.35);
+}
+
+.orders-table__numbers {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: hsl(219 23% 24%);
+}
+
+.status-badge--info {
+  color: hsl(204 83% 66%);
+}
+
+.status-badge--warning {
+  color: hsl(42 95% 68%);
+}
+
+.status-badge--success {
+  color: hsl(142 65% 70%);
+}
+
+.status-badge--neutral {
+  color: hsl(214 16% 70%);
+}
+
+.empty-state {
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: hsl(214 16% 70%);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 2.5rem 1rem 3rem;
+  }
+
+  .filters {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters__search input {
+    width: 100%;
+  }
+
+  .orders {
+    padding: 1rem;
+  }
+
+  .orders-table th,
+  .orders-table td {
+    padding: 0.6rem 0.5rem;
+  }
+}
