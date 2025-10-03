@@ -1,0 +1,5 @@
+{
+  "name": "AR Auto - Gestione Riordini",
+  "description": "Una web app per aiutare AR Auto a ottimizzare il riordino dei ricambi, calcolare il fabbisogno futuro e identificare gli articoli poco movimentati, integrata con Supabase.",
+  "requestFramePermissions": []
+}
