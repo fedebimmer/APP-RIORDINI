@@ -70,7 +70,8 @@ const calculateReplenishment = (item: Item, sale: SalesSnapshot, policy: PolicyP
             const gapOrMin = Math.max(gap, item.min_order_qty);
             
             if(policy.rounding_strategy === RoundingStrategy.TO_MIN_THEN_MULTIPLE) {
-                qty = Math.max(item.min_order_qty, Math.ceil(gap / item.order_multiple) * item.order_multiple)
+                const base = Math.max(gap, item.min_order_qty);
+                qty = Math.ceil(base / item.order_multiple) * item.order_multiple;
             } else { // TO_MULTIPLE
                  if (gapOrMin % item.order_multiple !== 0) {
                     qty = Math.ceil(gapOrMin / item.order_multiple) * item.order_multiple;
@@ -329,3 +330,5 @@ export const apiGetArchivedProposals = (): Promise<ArchivedProposal[]> => {
         }, 500);
     });
 };
+
+export { calculateReplenishment };
