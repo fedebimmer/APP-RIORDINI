@@ -1,5 +1,5 @@
 
-import { User, Role, FullItemData, Item, SalesSnapshot, ReplenishmentCalculation, PolicyParams, RunRateMethod, RoundingStrategy, ImportRow, ArchivedProposal, ProposalLine } from '../types';
+import { User, Role, FullItemData, Item, SalesSnapshot, ReplenishmentCalculation, PolicyParams, RunRateMethod, RoundingStrategy, ImportRow, ArchivedProposal, ProposalLine } from '../types.ts';
 import { addDays, differenceInDays } from 'date-fns';
 
 // --- MOCK USERS ---
@@ -34,7 +34,7 @@ let MOCK_DB = {
 
 
 // --- CALCULATION LOGIC ---
-const calculateReplenishment = (item: Item, sale: SalesSnapshot, policy: PolicyParams): ReplenishmentCalculation => {
+export const calculateReplenishment = (item: Item, sale: SalesSnapshot, policy: PolicyParams): ReplenishmentCalculation => {
     const today = new Date();
 
     // Ensure negative values from import don't affect calculations
@@ -49,7 +49,7 @@ const calculateReplenishment = (item: Item, sale: SalesSnapshot, policy: PolicyP
     const safety_stock = Math.ceil(daily_run_rate * policy.safety_stock_days);
 
     // 3. Lead Time Cover
-    const lead_time_cover_qty = Math.ceil(daily_run_rate * (item.lead_time_days || policy.lead_time_default_days));
+    const lead_time_cover_qty = Math.ceil(daily_run_rate * (item.lead_time_days ?? policy.lead_time_default_days));
     
     // 4. Forecast 60d
     const forecast_60d = Math.ceil(daily_run_rate * 60);
